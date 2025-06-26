@@ -1,7 +1,9 @@
 <template>
-  <div className="flex justify-between items-center w-full h-24">
-    <h1>Mastermind</h1>
-    <div>test</div>
-    <div>test1</div>
+  <div className="flex justify-around items-center w-full h-24 bg-slate-800">
+    <div>Home</div>
+    <div>Play</div>
+    <div>Games</div>
+    <div>Friends</div>
+    <div>Profile</div>
   </div>
 </template>

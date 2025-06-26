@@ -1,3 +1,5 @@
 <template>
-  <Navbar />
+  <UApp>
+    <Navbar />
+  </UApp>
 </template>
