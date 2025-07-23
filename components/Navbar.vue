@@ -5,5 +5,6 @@
     <div>Games</div>
     <div>Friends</div>
     <div>Profile</div>
+    <ColorModeButton />
   </div>
 </template>

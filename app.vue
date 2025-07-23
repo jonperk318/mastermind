@@ -1,5 +1,5 @@
 <template>
   <UApp>
-    <Navbar />
+    <NavBar />
   </UApp>
 </template>
