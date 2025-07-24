@@ -1,26 +1,37 @@
-# Nuxt Minimal Starter
+# Mastermind
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+The Mastermind board game built with Vue.js
 
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Run
 
 ```bash
 pnpm dev
 ```
 
-## Production
+Go to `http://localhost:3333`
 
-Build the application for production:
+## Build
 
 ```bash
 pnpm build
 ```
 
-Locally preview production build:
+The app can be served from the `dist` directory
+
+## Deploy on Netlify
+
+Go to [Netlify](https://app.netlify.com/start) and select your clone, `OK` along the way, and your App will be live in a minute.
+
+## Docker Production Build
+
+First, build the vitesse image by opening the terminal in the project's root directory.
 
 ```bash
-pnpm preview
+docker buildx build . -t vitesse:latest
+```
+
+Run the image and specify port mapping with the `-p` flag.
+
+```bash
+docker run --rm -it -p 8080:80 vitesse:latest
 ```
