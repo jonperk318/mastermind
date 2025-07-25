@@ -18,8 +18,8 @@ useHead({ title: () => t('button.about') })
 ```js
 // syntax highlighting example
 function vitesse() {
-  const foo = 'bar'
-  console.log(foo)
+  const foo = "bar";
+  console.log(foo);
 }
 ```
 
