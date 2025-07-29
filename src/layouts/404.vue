@@ -8,19 +8,15 @@ useHead({
 
 <template>
   <main
-    p="x6 y12"
-    flex
-    h-screen
-    items-center
-    text="center teal-700 dark:gray-200"
+    class="flex flex-col items-center px-12 h-screen w-screen text-center text-gray-700 dark:text-gray-200"
   >
     <Navbar />
-    <div text-4xl>
-      <div i-carbon-warning inline-block />
+    <div class="text-4xl">
+      <div class="i-carbon-warning inline-block" />
     </div>
     <RouterView />
     <div>
-      <button text-sm btn m="3 t8" @click="router.back()">
+      <button class="text-sm btn m-3" @click="router.back()">
         {{ t("button.back") }}
       </button>
     </div>

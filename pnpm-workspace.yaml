@@ -4,13 +4,11 @@ catalogs:
   build:
     "@intlify/unplugin-vue-i18n": ^6.0.8
     "@shikijs/markdown-it": ^3.8.1
-    "@unocss/eslint-config": ^66.3.3
     "@vitejs/plugin-vue": ^5.2.4
     beasties: ^0.2.0
     markdown-it-link-attributes: ^4.0.1
     rollup: ^4.45.1
     shiki: ^3.8.1
-    unocss: ^66.3.3
     unplugin: ^2.2.2
     unplugin-auto-import: ^19.3.0
     unplugin-vue-components: ^28.8.0
@@ -44,7 +42,6 @@ catalogs:
     vue-tsc: ^2.2.12
   frontend:
     "@unhead/vue": ^2.0.12
-    "@unocss/reset": ^66.3.3
     "@vueuse/core": ^13.5.0
     nprogress: ^0.2.0
     pinia: ^3.0.3
@@ -59,3 +56,9 @@ onlyBuiltDependencies:
   - cypress
   - esbuild
   - simple-git-hooks
+
+overrides:
+  esbuild@<=0.24.2: ">=0.25.0"
+  unplugin: catalog:build
+  vite: catalog:build
+  vite-plugin-inspect: catalog:build

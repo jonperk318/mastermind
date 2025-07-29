@@ -14,36 +14,16 @@ async function toggleLocales() {
 </script>
 
 <template>
-  <nav flex="~ gap-4" flex-col w-24 h-screen justify-center text-xl>
-    <RouterLink icon-btn to="/" :title="t('button.home')">
-      <div i-carbon-campsite />
+  <div
+    class="navbar flex gap-4 w-screen h-24 bg-base-100 justify-center text-xl"
+  >
+    <RouterLink class="btn btn-ghost" to="/" :title="t('button.home')">
+      Home
     </RouterLink>
-
-    <button icon-btn :title="t('button.toggle_dark')" @click="toggleDark()">
-      <div i="carbon-sun dark:carbon-moon" />
-    </button>
-
-    <a icon-btn :title="t('button.toggle_langs')" @click="toggleLocales()">
-      <div i-carbon-language />
-    </a>
-
-    <RouterLink
-      icon-btn
-      to="/about"
-      :title="t('button.about')"
-      data-test-id="about"
-    >
-      <div i-carbon-dicom-overlay />
+    <RouterLink class="btn btn-ghost" to="/play"> Play </RouterLink>
+    <RouterLink class="btn btn-ghost" to="/instructions">
+      Instructions
     </RouterLink>
-
-    <a
-      icon-btn
-      rel="noreferrer"
-      href="https://github.com/antfu/vitesse"
-      target="_blank"
-      title="GitHub"
-    >
-      <div i-carbon-logo-github />
-    </a>
-  </nav>
+    <RouterLink class="btn btn-ghost" to="/stats"> Stats </RouterLink>
+  </div>
 </template>

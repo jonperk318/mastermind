@@ -18,8 +18,8 @@ useHead({
 
 <template>
   <div>
-    <div text-4xl>
-      <div i-carbon-campsite inline-block />
+    <div class="text-4xl">
+      <div class="i-carbon-campsite inline-block" />
     </div>
     <p>
       <a
@@ -31,10 +31,10 @@ useHead({
       </a>
     </p>
     <p>
-      <em text-sm opacity-75>{{ t("intro.desc") }}</em>
+      <em class="text-sm opacity-75">{{ t("intro.desc") }}</em>
     </p>
 
-    <div py-4 />
+    <div class="py-4" />
 
     <TheInput
       v-model="name"
@@ -45,7 +45,7 @@ useHead({
     <label class="hidden" for="input">{{ t("intro.whats-your-name") }}</label>
 
     <div>
-      <button m-3 text-sm btn :disabled="!name" @click="go">
+      <button class="m-3 text-sm btn" :disabled="!name" @click="go">
         {{ t("button.go") }}
       </button>
     </div>
