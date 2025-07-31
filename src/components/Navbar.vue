@@ -1,29 +1,37 @@
 <script setup lang="ts">
-import { availableLocales, loadLanguageAsync } from "~/modules/i18n";
+import {
+  AkAlignRight,
+  AkCircleTriangleRight,
+  AkHomeAlt1,
+  AkInfo,
+  AkPeopleGroup,
+  AkPerson,
+} from "@kalimahapps/vue-icons";
+import { RouterLink } from "vue-router";
 
-const { t, locale } = useI18n();
-
-async function toggleLocales() {
-  // change to some real logic
-  const locales = availableLocales;
-  const newLocale =
-    locales[(locales.indexOf(locale.value) + 1) % locales.length];
-  await loadLanguageAsync(newLocale);
-  locale.value = newLocale;
-}
+const navigation = [
+  { name: "Home", to: "/", icon: AkHomeAlt1 },
+  { name: "Play", to: "/play", icon: AkCircleTriangleRight },
+  { name: "Info", to: "/info", icon: AkInfo },
+  { name: "Stats", to: "/stats", icon: AkAlignRight },
+  { name: "Friends", to: "/friends", icon: AkPeopleGroup },
+  { name: "Profile", to: "/profile", icon: AkPerson },
+];
 </script>
 
 <template>
-  <div
-    class="navbar flex gap-4 w-screen h-24 bg-base-100 justify-center text-xl"
-  >
-    <RouterLink class="btn btn-ghost" to="/" :title="t('button.home')">
-      Home
-    </RouterLink>
-    <RouterLink class="btn btn-ghost" to="/play"> Play </RouterLink>
-    <RouterLink class="btn btn-ghost" to="/instructions">
-      Instructions
-    </RouterLink>
-    <RouterLink class="btn btn-ghost" to="/stats"> Stats </RouterLink>
+  <div class="w-screen h-18 flex px-8 bg-base-100 text-lg">
+    <div class="w-1/2 h-full flex justify-start items-center">
+      <div>LOGO</div>
+    </div>
+    <div
+      class="w-1/2 h-full flex justify-end items-center"
+      v-for="nav in navigation"
+      :key="nav.name"
+    >
+      <RouterLink class="btn btn-ghost btn-sm" to="nav.to">
+        <component :is="nav.icon" class="mr-2 text-xl" />{{ nav.name }}
+      </RouterLink>
+    </div>
   </div>
 </template>

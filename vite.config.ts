@@ -1,13 +1,10 @@
 import path from "node:path";
 import VueI18n from "@intlify/unplugin-vue-i18n/vite";
-import Shiki from "@shikijs/markdown-it";
 import { unheadVueComposablesImports } from "@unhead/vue";
 import Vue from "@vitejs/plugin-vue";
-import LinkAttributes from "markdown-it-link-attributes";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import VueMacros from "unplugin-vue-macros/vite";
-import Markdown from "unplugin-vue-markdown/vite";
 import { VueRouterAutoImports } from "unplugin-vue-router";
 import VueRouter from "unplugin-vue-router/vite";
 import { defineConfig } from "vite";
@@ -17,6 +14,7 @@ import Layouts from "vite-plugin-vue-layouts";
 import generateSitemap from "vite-ssg-sitemap";
 import "vitest/config";
 import tailwindcss from "@tailwindcss/vite";
+import VueIconsResolver from "@kalimahapps/vue-icons/resolver";
 
 export default defineConfig({
   resolve: {
@@ -62,38 +60,11 @@ export default defineConfig({
       vueTemplate: true,
     }),
 
-    // https://github.com/antfu/unplugin-vue-components
     Components({
-      // allow auto load markdown components under `./src/components/`
-      extensions: ["vue", "md"],
-      // allow auto import and register components used in markdown
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      resolvers: [VueIconsResolver],
+      extensions: ["vue"],
+      include: [/\.vue$/, /\.vue\?vue/],
       dts: "src/components.d.ts",
-    }),
-
-    // https://github.com/unplugin/unplugin-vue-markdown
-    // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-    Markdown({
-      wrapperClasses: "prose prose-sm m-auto text-left",
-      headEnabled: true,
-      async markdownItSetup(md) {
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: "_blank",
-            rel: "noopener",
-          },
-        });
-        md.use(
-          await Shiki({
-            defaultColor: false,
-            themes: {
-              light: "vitesse-light",
-              dark: "vitesse-dark",
-            },
-          }),
-        );
-      },
     }),
 
     tailwindcss(),

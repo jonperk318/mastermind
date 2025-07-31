@@ -18,6 +18,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@kalimahapps/vue-icons": "^1.8.1",
     "@tailwindcss/vite": "^4.1.11",
     "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
