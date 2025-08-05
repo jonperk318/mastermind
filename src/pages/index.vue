@@ -24,31 +24,17 @@ useHead({
     <p>
       <a
         rel="noreferrer"
-        href="https://github.com/antfu/vitesse"
+        href="https://en.wikipedia.org/wiki/Mastermind_(board_game)"
         target="_blank"
       >
-        Vitesse
+        Mastermind
       </a>
     </p>
     <p>
-      <em class="text-sm opacity-75">{{ t("intro.desc") }}</em>
+      <em class="text-sm opacity-75">The famous board game created in 1970</em>
     </p>
 
     <div class="py-4" />
-
-    <TheInput
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      autocomplete="false"
-      @keydown.enter="go"
-    />
-    <label class="hidden" for="input">{{ t("intro.whats-your-name") }}</label>
-
-    <div>
-      <button class="m-3 text-sm btn" :disabled="!name" @click="go">
-        {{ t("button.go") }}
-      </button>
-    </div>
   </div>
 </template>
 
