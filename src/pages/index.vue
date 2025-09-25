@@ -5,7 +5,7 @@ defineOptions({
 
 const { t } = useI18n();
 useHead({
-  title: () => t("button.home"),
+  title: () => t("button.default"),
 });
 </script>
 
@@ -33,5 +33,5 @@ useHead({
 
 <route lang="yaml">
 meta:
-  layout: home
+  layout: default
 </route>
